@@ -72,7 +72,6 @@ public class NumbersIntoWords {
                 return "eighteen";
             case 19:
                 return "nineteen";
-
         }
         return"";
     }
@@ -83,8 +82,8 @@ public class NumbersIntoWords {
         while (number != 0) {
             System.out.println("Input Number Into Words");
             number = scanner.nextInt();
-            // int hundreds=Math.floorDiv(number,100);
-            int tens = Math.floorDiv(number, 10);
+            int hundreds=Math.floorDiv(number,100);
+            int tens = Math.floorDiv((number-hundreds*100), 10);
             int numeral = number % 10;
             if (number < 10) {
                 System.out.println(checkNumeral(numeral));
@@ -92,6 +91,8 @@ public class NumbersIntoWords {
                 System.out.println(checkteen(number));
             } else if (number < 100) {
                 System.out.println(checkTens(tens) +" "+ checkNumeral(numeral));
+            }else if(number<999){
+                System.out.println(checkNumeral(hundreds)+" hundred "+checkTens(tens)+" "+checkNumeral(numeral));
             }
         }
     }
