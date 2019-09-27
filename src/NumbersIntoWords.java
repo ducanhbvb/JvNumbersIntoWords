@@ -92,7 +92,11 @@ public class NumbersIntoWords {
             } else if (number < 100) {
                 System.out.println(checkTens(tens) +" "+ checkNumeral(numeral));
             }else if(number<999){
-                System.out.println(checkNumeral(hundreds)+" hundred "+checkTens(tens)+" "+checkNumeral(numeral));
+                if(tens==1){
+                    System.out.println(checkNumeral(hundreds)+" hundred "+checkteen(tens*10+numeral));
+                }else{
+                    System.out.println(checkNumeral(hundreds)+" hundred "+checkTens(tens)+" "+checkNumeral(numeral));
+                }
             }
         }
     }
